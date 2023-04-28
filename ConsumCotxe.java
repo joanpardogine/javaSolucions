@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * @author Joan Pardo
+ *
+ */
 public class ConsumCotxe {
 /**
  *  Fer un programa que calculi:
@@ -20,19 +24,24 @@ public class ConsumCotxe {
 public static void main(String[] args) {
     // Definició de variables
     Scanner teclat = new Scanner(System.in);
-    
+
     int comptaQm1rRepos;
     int comptaQm2nRepos;
     float preuLitre;
     float qtatLitres2nRepos;
-
+    
     // Inicialització de variables
     comptaQm1rRepos = 0;
     comptaQm2nRepos = 0;
     preuLitre = 0.0f;
     qtatLitres2nRepos = 0.0f;
-
     
+    System.out.println("comptaQm1rRepos   = " + comptaQm1rRepos);
+    System.out.println("comptaQm2nRepos   = " + comptaQm2nRepos);
+    System.out.println("preuLitre         = " + preuLitre);
+    System.out.println("qtatLitres2nRepos = " + qtatLitres2nRepos);
+    
+    teclat.close();
 
     }
 

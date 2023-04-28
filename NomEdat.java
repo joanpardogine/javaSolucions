@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class NomEdat {
     /**
+     * @author: Joan
     * Fer un programa en java que demani a l’usuari el nom i l'edat i mostri per pantalla el següent missatge:
     Hola, et dius <nomEntrat> i tens <edatEntrada> anys
 

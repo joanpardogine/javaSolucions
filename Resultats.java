@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 /**
  * Resultats
+ * @author Joan Pardo
+ *
  */
 public class Resultats {
     public static float operacio(int element1, int element2, char operador) {
@@ -39,7 +41,8 @@ public class Resultats {
     }
 
     public static void main(String[] args) {
-        int num1, num2;
+        int num1;
+        int num2;
         float resultat;
         char respostaSortir;
         boolean volsSortir;
@@ -70,7 +73,7 @@ public class Resultats {
             System.out.print("Vols sortir (s/n)?: ");
             respostaSortir = teclat.next().charAt(0);
             respostaSortir = Character.toLowerCase(respostaSortir);
-            if(respostaSortir=='s'){
+            if(respostaSortir == 's'){
                 volsSortir = true;
             }
         }while (!(volsSortir));
