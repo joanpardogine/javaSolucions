@@ -33,3 +33,54 @@ public class NumDiaSetmana {
         
     }
 }
+
+
+// dilluns = 1 dimarts = 2 dimecres = 3 dijous = 4 divendres = 5 dissabte = 6
+// diumenge = 7
+
+    // OPCIÓ A Amb if's
+    // if (diaSetmana == 1) {
+    // nomDiaSetmana = "dilluns";
+    // } else {
+    // if (diaSetmana == 2) {
+    // nomDiaSetmana = "dimarts";
+    // } else if (diaSetmana == 3) {
+    // nomDiaSetmana = "dimecres";
+    // } else if (diaSetmana == 4) {
+    // nomDiaSetmana = "dijous";
+    // } else if (diaSetmana == 5) {
+    // nomDiaSetmana = "divendres";
+    // } else if (diaSetmana == 6) {
+    // nomDiaSetmana = "dissabte";
+    // } else {
+    // nomDiaSetmana = "diumenge";
+    // }
+    // }
+
+    // OPCIÓ B Amb switch
+    // switch (diaSetmana){
+    // case 1:
+    // nomDiaSetmana = "dilluns";
+    // break;
+    // case 2:
+    // nomDiaSetmana = "dimarts";
+    // break;
+    // case 3:
+    // nomDiaSetmana = "dimecres";
+    // break;
+    // case 4:
+    // nomDiaSetmana = "dijous";
+    // break;
+    // case 5:
+    // nomDiaSetmana = "divendres";
+    // break;
+    // case 6:
+    // nomDiaSetmana = "dissabte";
+    // break;
+    // case 7:
+    // nomDiaSetmana = "diumenge";
+    // break;
+    // // default: break;
+    // }
+    
+    // System.out.println("El dia de la setmana és " + nomDiaSetmana);
