@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
-
+/**
+ * @author: Joan Pardo
+ */
 public class NumDiaSetmana {
     public static void main(String[] args) {
         Scanner teclat = new Scanner(System.in);
