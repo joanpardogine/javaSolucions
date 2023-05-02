@@ -5,7 +5,8 @@ public class Sumatori {
         
     public static void main(String[] args) {
         Scanner teclat = new Scanner(System.in);
-        int numero, resultat = 0;
+        int numero;
+        int resultat = 0;
 
         System.out.print("Introdueix el número: ");
         numero = teclat.nextInt();
