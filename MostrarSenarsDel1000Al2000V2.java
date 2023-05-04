@@ -7,14 +7,17 @@
 public class MostrarSenarsDel1000Al2000V2 {
 
     public static void main(String[] args) {
-        int comptador = 1000;
-        do {
+        for (int comptador = 1000; comptador < 2000; comptador++) {
             if (comptador%2 != 0) {
                 System.out.println(comptador);
             }
-            comptador++;
-        } while (comptador <= 2000);
-        
-
+        }
+        // int comptador = 1000;
+        // do {
+        //     if (comptador%2 != 0) {
+        //         System.out.println(comptador);
+        //     }
+        //     comptador++;
+        // } while (comptador <= 2000);
     }
 }
