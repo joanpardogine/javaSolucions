@@ -29,7 +29,6 @@ public class Grangers {
         {"males herbes","50"},
         {"mosques i mosquits","70"},
         {"cucs","80"},
-        {"escarbats","45"},
         {"tots els tipus anteriors","190"}};
 
     static int entraOpcioMenu(){
@@ -68,18 +67,70 @@ public class Grangers {
             System.out.println("Tipus " + (i+1) +
             ": Fumigació contra " + preuFumigacions[i][0] + ", " +
             preuFumigacions[i][1] + " Euros per hectàrea.");
-        };
         }
+    }
+
+
+    public static float llegeixFloat(String missatge) {
+        float valorLlegit = -1;
+        boolean positiu = false;
+        do {
+            System.out.print(missatge);
+            try {
+                valorLlegit = teclat.nextFloat();
+                if (valorLlegit < 0) {
+                    System.out.println("ERROR!!! Només pots entrar positius!!");
+                    positiu = false;
+                } else {
+                    positiu = true;
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR!!! Només pots entrar enters!!");
+            } finally {
+                teclat = new Scanner(System.in);
+            }
+        } while (!positiu);
+        return valorLlegit;
+    }
 
     public static void main(String[] args) {
         int opcioEntrada = -1;
-        float qtatHectarees = -1;
+        int preuEscollit;
+        float qtatHectarees;
+        float importBasic;
+        float importFinal;
+        float import1rDte;
+        float import2nDte;
+        import1rDte = 0.0f;
+        import2nDte = 0.0f;
+
+        float dtePerHectarees;
+        dtePerHectarees = 0.05f;  // 5% = 0.05
+        float dtePerMes10000;
+        dtePerMes10000 = 0.10f;   // 10% = 0.10
+
         opcioEntrada = entraOpcioMenu();
-        System.out.print("Entra la quantitat d'Hectàrees: ");
-        qtatHectarees = teclat.nextFloat();
-        System.out.println("Has ecollit l'opció " + preuFumigacions[opcioEntrada-1][0]);
+        qtatHectarees = llegeixFloat("Entra la quantitat d'Hectàrees: ");
         System.out.println("Has entrat " + qtatHectarees + " hectàrees.");
-        System.out.println("L'import final és " + (qtatHectarees * Integer.parseInt(preuFumigacions[opcioEntrada-1][1])) ); 
+        preuEscollit = Integer.parseInt(preuFumigacions[opcioEntrada-1][1]);
+        importBasic = qtatHectarees * preuEscollit;
+
+        if (qtatHectarees>100){
+            import1rDte = importBasic * dtePerHectarees;
+            System.out.println("Tens un descomte de " + dtePerHectarees + " per entrar més de 100 hectàrees.");
+            System.out.println("Descomte = " + import1rDte);
+        }
+
+        System.out.println("Has ecollit l'opció " + preuFumigacions[opcioEntrada-1][0] + " és a dir " + preuEscollit + "euro/hectàrea.");
+        System.out.println("De moment tens un import bàsic de " + importBasic);
+
+        if (importBasic>10000){
+            import2nDte = (10000-importBasic) * dtePerMes10000;
+            System.out.println("Tens un descomte de " + dtePerMes10000 + " perquè l'import és superior a 10000 Euros.");
+            System.out.println("Descomte = " + import2nDte);
+        }
+
+        System.out.println("L'import final és " + (importBasic - import1rDte - import2nDte)); 
 
     }
 }
