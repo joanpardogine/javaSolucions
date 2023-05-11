@@ -80,7 +80,6 @@ public class Grangers {
                 valorLlegit = teclat.nextFloat();
                 if (valorLlegit < 0) {
                     System.out.println("ERROR!!! Només pots entrar positius!!");
-                    positiu = false;
                 } else {
                     positiu = true;
                 }
@@ -98,7 +97,6 @@ public class Grangers {
         int preuEscollit;
         float qtatHectarees;
         float importBasic;
-        float importFinal;
         float import1rDte;
         float import2nDte;
         import1rDte = 0.0f;

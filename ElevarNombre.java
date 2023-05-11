@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.tree.TreeCellEditor;
-
 /**
  * @author: Joan Pardo
  * Escriure un programa que donats dos nombres a i b, que l’usuari ingressi per teclat,
@@ -20,7 +18,6 @@ public class ElevarNombre {
                 valorLlegit = teclat.nextInt();
                 if(valorLlegit<0){
                     System.out.println("ERROR!!! Només pots entrar positius!!");
-                    positiu = false;
                 } else {
                     positiu = true;
                 }
