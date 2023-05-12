@@ -1,3 +1,7 @@
+import java.util.Scanner;
+import utils_joan.Llegir;
+
+
 public class ControlFesta {
     // A una festa assisteixen persones de diferents edats i sexe. Desenvolupa programa en java que,
     // donades les edats i el sexe (HOME-DONA-ALTRE) de les persones assistents, calculi:
@@ -10,6 +14,22 @@ public class ControlFesta {
     // El programa anirà demant dades fins que es llegeixi una edat igual a 0.
     // Cal fer servir una constant amb el nom MAJOR_EDAT.
 
+    public enum Sexe {
+        HOME, DONA, ALTRE
+    }
 
-    
+    static Scanner teclat = new Scanner(System.in);
+
+   public static void main(String[] args) {
+    int edatEntrada = 0;
+    do{
+        edatEntrada = Llegir.enterPositiu("Entra l'edat de la persona: ");
+        if(edatEntrada!=0){
+            System.out.println("has entrat l'edat " + edatEntrada);
+        } else {
+            System.out.println("Adeu!");
+        }
+
+    } while (edatEntrada!=0);
+   }
 }
