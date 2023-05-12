@@ -14,14 +14,15 @@ public class ControlFesta {
     // Cal fer servir una constant amb el nom MAJOR_EDAT.
 
     static Scanner teclat = new Scanner(System.in);
-    private final int MAJOR_EDAT = 18;
+    
+    static final int MAJOR_EDAT = 18;
 
     public static enum Sexe {
         HOME, DONA, ALTRE
     }
-
+    
     public static void main(String[] args) {
-
+        
         int edatEntrada = 0;
         char sexeEntrat;
         Sexe sexeDeLaPersona;
@@ -34,77 +35,84 @@ public class ControlFesta {
         do {
             edatEntrada = Llegir.enterPositiu("Entra l'edat de la persona: ");
             if (edatEntrada != 0) {
-                do {
-                    System.out.println("Entra el sexe de la persona (H per home, D per Dona o A per Altre): ");
-                    sexeEntrat = teclat.next().charAt(0);
-                    sexeEntrat = Character.toUpperCase(sexeEntrat);
-                    if (sexeEntrat != 'H' && sexeEntrat != 'D' && sexeEntrat != 'A') {
-                        System.err.println(
-                                "ERROR! Només pots entrar una de les opcions especifiques! H per home, D per Dona o A per Altre)");
+                if (edatEntrada > MAJOR_EDAT) {
+                    do {
+                        System.out.println("Entra el sexe de la persona (H per home, D per Dona o A per Altre): ");
+                        sexeEntrat = teclat.next().charAt(0);
+                        sexeEntrat = Character.toUpperCase(sexeEntrat);
+                        if (sexeEntrat != 'H' && sexeEntrat != 'D' && sexeEntrat != 'A') {
+                            System.err.println(
+                                    "ERROR! Només pots entrar una de les opcions especifiques! H per home, D per Dona o A per Altre)");
+                        }
+                    } while (sexeEntrat != 'H' && sexeEntrat != 'D' && sexeEntrat != 'A');
+                    switch (sexeEntrat) {
+                        case 'H':
+                            sexeDeLaPersona = Sexe.HOME;
+                            qtatTotalPerSexe[0]++;
+                            sumaEdatPerSexe[0] += edatEntrada;
+                            break;
+                        case 'D':
+                            sexeDeLaPersona = Sexe.DONA;
+                            qtatTotalPerSexe[1]++;
+                            sumaEdatPerSexe[1] += edatEntrada;
+                            break;
+                        case 'A':
+                            sexeDeLaPersona = Sexe.ALTRE;
+                            qtatTotalPerSexe[2]++;
+                            sumaEdatPerSexe[2] += edatEntrada;
+                            break;
                     }
-                } while (sexeEntrat != 'H' && sexeEntrat != 'D' && sexeEntrat != 'A');
-                switch (sexeEntrat){
-                    case 'H':
-                        sexeDeLaPersona = Sexe.HOME;
-                        qtatTotalPerSexe[0]++;
-                        sumaEdatPerSexe[0] += edatEntrada;
-                        break;
-                    case 'D':
-                        sexeDeLaPersona = Sexe.DONA;
-                        qtatTotalPerSexe[1]++;
-                        sumaEdatPerSexe[1] += edatEntrada;
-                        break;
-                    case 'A':
-                        sexeDeLaPersona = Sexe.ALTRE;
-                        qtatTotalPerSexe[2]++;
-                        sumaEdatPerSexe[2] += edatEntrada;
-                        break;
-                }
 
-                if(edatEntrada<edatMesJove){
-                    edatMesJove = edatEntrada;
-                }
+                    if (edatEntrada < edatMesJove) {
+                        edatMesJove = edatEntrada;
+                    }
 
-                if(edatEntrada>edatMesVella){
-                    edatMesVella = edatEntrada;
+                    if (edatEntrada > edatMesVella) {
+                        edatMesVella = edatEntrada;
+                    }
+                } else {
+                    System.out.println("No pot entrar!");
                 }
-
             } else {
                 System.out.println("Adeu!");
             }
 
-        }while(edatEntrada!=0);
+        } while (edatEntrada != 0);
 
         // *) Nombre total de persones que assisteixen a la festa.
-        System.out.println("Han entrat " + (qtatTotalPerSexe[0]+qtatTotalPerSexe[1]+qtatTotalPerSexe[2]) + " persones!");
+        System.out.println(
+                "Han entrat " + (qtatTotalPerSexe[0] + qtatTotalPerSexe[1] + qtatTotalPerSexe[2]) + " persones!");
 
         // *) Nombre total d'homes, dones i altres.
         System.out.println("Han entrat " + qtatTotalPerSexe[0] + " homes!");
         System.out.println("Han entrat " + qtatTotalPerSexe[1] + " dones!");
         System.out.println("Han entrat " + qtatTotalPerSexe[2] + " altres!");
-        
+
         // *) Mitjana de les edats per sexe.
-        if(qtatTotalPerSexe[0]==0){
+        if (qtatTotalPerSexe[0] == 0) {
             System.out.print("La mitjana d'homes és: 0\n");
         } else {
             System.out.println("sumaEdatPerSexe[0] = " + sumaEdatPerSexe[0]);
             System.out.println("qtatTotalPerSexe[0] = " + qtatTotalPerSexe[0]);
-            System.out.print("La mitjana d'homes és: " + (sumaEdatPerSexe[0]/qtatTotalPerSexe[0]) + "\n");
+            System.out.print("La mitjana d'homes és: " + (sumaEdatPerSexe[0] / qtatTotalPerSexe[0]) + "\n");
         }
-        if(qtatTotalPerSexe[1]==0){
+        if (qtatTotalPerSexe[1] == 0) {
             System.out.print("La mitjana de dones és: 0\n");
         } else {
-            System.out.print("La mitjana de dones és: " +  (sumaEdatPerSexe[1]/qtatTotalPerSexe[1]) + "\n");
+            System.out.print("La mitjana de dones és: " + (sumaEdatPerSexe[1] / qtatTotalPerSexe[1]) + "\n");
         }
-        if(qtatTotalPerSexe[2]==0){
+        if (qtatTotalPerSexe[2] == 0) {
             System.out.print("La mitjana d'altres és: 0\n");
         } else {
-            System.out.print("La mitjana d'altres és: " +  (sumaEdatPerSexe[2]/qtatTotalPerSexe[2]) + "\n");
+            System.out.print("La mitjana d'altres és: " + (sumaEdatPerSexe[2] / qtatTotalPerSexe[2]) + "\n");
         }
         // *) Edat de la persona més jove i la més vella
-        System.out.println("La persona més jove té " + edatMesJove + " anys!");
-        System.out.println("La persona més vella té " + edatMesVella + " anys!");
+        if(edatMesJove!=200){
+            System.out.println("La persona més jove té " + edatMesJove + " anys!");
+        }
+        if(edatMesVella!=0){
+            System.out.println("La persona més vella té " + edatMesVella + " anys!");
+        }
 
-
-
-}}
+    }
+}
