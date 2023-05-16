@@ -16,7 +16,7 @@ public class GestioDeMenus {
         // que s'ha invocat un mètode en el moment equivocat.
         // Aquesta excepció s'utilitza per indicar que es
         // crida un mètode en un moment il·legal o inadequat.
-        throw new IllegalStateException("Utility class");
+        throw new IllegalStateException("No es pot instanciar aquesta Classe.");
     }
     
     // Setters i Getters    --> No en té ja que no té atributs!!
