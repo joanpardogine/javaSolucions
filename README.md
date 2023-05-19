@@ -11,3 +11,5 @@
 
 ![UML-HOSPITAL](https://github.com/joanpardogine/profe-A081-classes-propies/raw/main/img/UML-HOSPITAL-mes-filles_2.png)
 
+
+[Solucio examen-mp03-uf04-20230518](https://github.com/joanpardogine/examen-mp03-uf04-20230518)
