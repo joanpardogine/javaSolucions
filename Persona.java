@@ -6,7 +6,6 @@ public class Persona {
     private String cognom;
     private String telefon;
     private String correu;
-
     private LocalDate dataNaixament;
 
     // Constructor
